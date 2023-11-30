@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <link rel="icon" href="https://www.abctreinamentos.com.br/imgs/siscapacit.ico"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <title>Aplicação Spring Boot WEB</title>
+</head>
+<body>
+<div class="container">
+    <div th:insert="fragments/navbar.html"> </div>
+
+    <div class="jumbotron">
+        <h2>Editar Servidor Público</h2>
+		<form th:object="${servidorpublico}" th:action="@{'/edicaoServidor/' + ${matricula}}" method="post">
+         <div class="form-group">
+            <label for="nome">Nome:</label>
+            <input type="text" id="nome" name="nome" th:field="*{nome}" class="form-control" required>
+         </div>
+         <div class="form-group">   
+            <label for="foto">Foto:</label>
+            <input type="text" id="foto" name="foto" th:field="*{foto}" class="form-control" required>
+         </div>
+          <div class="form-group">   
+            <label for="orgao">Órgão:</label>
+            <input type="text" id="orgao" name="orgao" th:field="*{orgao}" class="form-control" required>
+        </div>
+        <div class="form-group">
+            <label for="vinculo">Vínculo:</label>
+            <input type="text" id="vinculo" name="vinculo" th:field="*{vinculo}" class="form-control" required>
+        </div>
+        <div class="form-group">    
+            <label for="cargo">Cargo:</label>
+            <input type="text" id="cargo" name="cargo" th:field="*{cargo}" class="form-control" required>
+        </div>    
+        <div class="form-group">
+            <label for="lotacao">Lotação:</label>
+            <input type="text" id="lotacao" name="lotacao" th:field="*{lotacao}" class="form-control" required>
+        </div>
+        <div class="form-group">
+            <label for="exercicio">Exercício:</label>
+            <input type="text" id="exercicio" name="exercicio" th:field="*{exercicio}" class="form-control" required>
+        </div>    
+        <div class="form-group">
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" th:field="*{email}" class="form-control" required>
+        </div>
+        <div class="form-group">    
+            <label for="telefone">Telefone:</label>
+            <input type="text" id="telefone" name="telefone" th:field="*{telefone}" class="form-control" required>
+        </div>  
+        <div class="form-group">    
+            <label for="exercicio">Celular:</label>
+            <input type="text" id="exercicio" name="celular" th:field="*{celular}" class="form-control" required>
+        </div>
+        <div class="form-group">    
+            <label for="cpf">CPF:</label>
+            <input type="text" id="cpf" name="cpf" th:field="*{cpf}" class="form-control" required>
+        </div>    
+        <div class="form-group">
+            <label for="naturalidade">Naturalidade:</label>
+            <input type="text" id="naturalidade" name="naturalidade" th:field="*{naturalidade}" class="form-control" required>
+        </div>
+        <div class="d-flex justify-content-center">
+    		<button type="submit" class="btn btn-primary">Alterar</button>
+    	</div>	
+    </form>
+    </div>
+    </div>
+    <div class="col-sm-12 d-flex justify-content-center">
+         <span><a class="btn custom-smile-btn-back mr-1 ml-1" onclick="history.go(-1)"><span class="icon"> <i
+                         class="fas fa-angle-double-left mr-2"></i></span><span
+                     class="btn btn-info">Voltar</span></a></span>
+     </div>
+</div>
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+</body>
+</html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <link rel="icon" href="https://www.abctreinamentos.com.br/imgs/siscapacit.ico"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <title>Aplicação Spring Boot WEB</title>
+</head>
+<body>
+<div class="container">
+    <div th:insert="fragments/navbar.html"> </div>
+
+    <div class="jumbotron">
+        <h2>Informações do Servidor Público</h2>
+		<table class="table table-striped">
+    <thead class="thead-dark">
+    <tr>
+        <th scope="col">Foto</th>
+        <th scope="col">Nome</th>
+        <th scope="col">Matrícula</th>
+        <th scope="col">CPF</th>
+		<th scope="col">Cargo</th>
+        <th scope="col">Órgão</th>
+        <th scope="col">Lotação</th>
+		<th scope="col">Email</th>
+		<th scope="col">Celular</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="servidor : ${servidorpublico}">
+        <td><img th:src="${servidor.foto}" width="75px" height="75px" /></td>
+        <td th:text="${servidor.nome}"></td>
+        <td th:text="${servidor.matricula}"></td>
+        <td th:text="${servidor.cpf}"></td>
+        <td th:text="${servidor.cargo}"></td>
+        <td th:text="${servidor.orgao}"></td>
+        <td th:text="${servidor.lotacao}"></td>
+        <td th:text="${servidor.email}"></td>
+        <td th:text="${servidor.celular}"></td>
+    </tr>
+    </tbody>
+</table>
+    </div>
+    <div class="col-sm-12 d-flex justify-content-center">
+         <span><a class="btn custom-smile-btn-back mr-1 ml-1" onclick="history.go(-1)"><span class="icon"> <i
+                         class="fas fa-angle-double-left mr-2"></i></span><span
+                     class="btn btn-info">Voltar</span></a></span>
+     </div>
+</div>
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+</body>
+</html>

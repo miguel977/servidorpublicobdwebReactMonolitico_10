@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <link rel="icon" href="https://www.abctreinamentos.com.br/imgs/siscapacit.ico"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <title>Aplicação Spring Boot WEB</title>
+</head>
+<body>
+<div class="container">
+    <div th:insert="fragments/navbar.html"> </div>
+
+    <div class="jumbotron">
+        <h3>Listagem dos Servidores Públicos</h3>
+        <!-- Verifica se a lista está vazia -->
+		<th:block th:if="${#lists.isEmpty(servidorespublicos)}">
+   			<p>Não há servidores públicos cadastrados</p>
+		</th:block>
+
+		<!-- Caso a lista não esteja vazia, mostra os servidores -->
+		<th:block th:if="${not #lists.isEmpty(servidorespublicos)}">
+   		<table class="table table-striped">      
+		    <thead class="thead-dark">
+		    <tr>
+		        <th scope="col">Foto</th>
+		        <th scope="col">Nome</th>
+				<th scope="col">Cargo</th>
+		        <th scope="col">Órgão</th>
+		        <th scope="col">Lotação</th>
+				<th scope="col">Email</th>
+		        <th scope="col">Ações</th>
+		    </tr>
+		    </thead>
+		    <tbody>
+		    <tr th:each="servidor : ${servidorespublicos}">
+		        <td><img th:src="${servidor.foto}" width="75px" height="75px" /></td>
+		        <td th:text="${servidor.nome}"></td>
+		        <td th:text="${servidor.cargo}"></td>
+		        <td th:text="${servidor.orgao}"></td>
+		        <td th:text="${servidor.lotacao}"></td>
+		        <td th:text="${servidor.email}"></td>
+		        <td>
+		          <div class="btn-group" role="group" aria-label="Ações">
+		        	<a th:href="@{'/listaServidor/' + ${servidor.matricula}}" class="btn btn-primary">Detalhar</a>
+		        	<a th:href="@{'/formEditarServidor/' + ${servidor.matricula}}" class="btn btn-secondary">Alterar</a>
+		        	<a th:href="@{'/exclusaoServidor/' + ${servidor.matricula}}" class="btn btn-danger">Excluir</a>
+		          </div> 
+		        </td>
+		    </tr>
+		    </tbody>
+</table>
+</th:block>
+    </div>
+</div>
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+</body>
+</html>

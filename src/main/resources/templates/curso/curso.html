@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <link rel="icon" href="https://www.abctreinamentos.com.br/imgs/siscapacit.ico"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <title>Aplicação Spring Boot WEB</title>
+</head>
+<body>
+<div class="container">
+    <div th:insert="fragments/navbar.html"> </div>
+
+    <div class="jumbotron">
+        <h2>Informações do Curso</h2>
+		<table class="table table-striped">
+    <thead class="thead-dark">
+    <tr>
+        <th scope="col">Foto</th>
+        <th scope="col">Nome</th>
+        <th scope="col">Forma de Realização</th>
+        <th scope="col">Ofertante</th>
+		<th scope="col">Vagas</th>
+		<th scope="col">Valor</th>
+		<th scope="col">Site</th>
+		<th scope="col">Situação</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="cursoe : ${curso}">
+        <td><img th:src="${cursoe.foto}" width="75px" height="75px" /></td>
+        <td th:text="${cursoe.nome}"></td>
+        <td th:text="${cursoe.formarealizacao}"></td>
+        <td th:text="${cursoe.ofertante}"></td>
+        <td th:text="${cursoe.vagas}"></td>
+        <td th:text="${cursoe.valor}"></td>
+        <td th:text="${cursoe.site}"></td>
+        <td th:text="${cursoe.situacao}"></td>
+    </tr>
+    </tbody>
+</table>
+    </div>
+    <div class="col-sm-12 d-flex justify-content-center">
+         <span><a class="btn custom-smile-btn-back mr-1 ml-1" onclick="history.go(-1)"><span class="icon"> <i
+                         class="fas fa-angle-double-left mr-2"></i></span><span
+                     class="btn btn-info">Voltar</span></a></span>
+     </div>
+</div>
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+</body>
+</html>

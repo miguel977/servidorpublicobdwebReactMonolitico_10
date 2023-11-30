@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <link rel="icon" href="https://www.abctreinamentos.com.br/imgs/siscapacit.ico"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <title>Aplicação Spring Boot WEB</title>
+</head>
+<body>
+<div class="container">
+    <div th:insert="fragments/navbar.html"> </div>
+
+    <div class="jumbotron">
+        <h2 class="text-center">Editar Curso</h2>
+        <hr>
+        <form th:object="${curso}" th:action="@{'/edicaoCurso/' + ${idcurso}}" method="post" class="needs-validation" novalidate>
+            <div class="form-group">
+                <label for="nome">Nome:</label>
+                <input type="text" id="nome" name="nome" th:field="*{nome}" class="form-control" required>
+                <div class="invalid-feedback">Campo obrigatório.</div>
+            </div>
+            <div class="form-group">
+                <label for="foto">Foto:</label>
+                <input type="text" id="foto" name="foto" th:field="*{foto}" class="form-control" required>
+                <div class="invalid-feedback">Campo obrigatório.</div>
+            </div>
+            <div class="form-group">
+                <label for="formarealizacao">Forma de Realização:</label>
+                <input type="text" id="formarealizacao" name="formarealizacao" th:field="*{formarealizacao}" class="form-control" required>
+                <div class="invalid-feedback">Campo obrigatório.</div>
+            </div>
+            <div class="form-group">
+                <label for="ofertante">Ofertante:</label>
+                <input type="text" id="ofertante" name="ofertante" th:field="*{ofertante}" class="form-control" required>
+                <div class="invalid-feedback">Campo obrigatório.</div>
+            </div>
+            <div class="form-group">
+                <label for="vagas">Vagas:</label>
+                <input type="text" id="vagas" name="vagas" th:field="*{vagas}" class="form-control" required>
+                <div class="invalid-feedback">Campo obrigatório.</div>
+            </div>
+            <div class="form-group">
+                <label for="valor">Valor:</label>
+                <input type="text" id="valor" name="valor" th:field="*{valor}" class="form-control" required>
+                <div class="invalid-feedback">Campo obrigatório.</div>
+            </div>
+            <div class="form-group">
+                <label for="site">Site:</label>
+                <input type="text" id="site" name="site" th:field="*{site}" class="form-control" required>
+                <div class="invalid-feedback">Campo obrigatório.</div>
+            </div>
+            <div class="form-group">
+                <label for="situacao">Situação:</label>
+                <input type="text" id="situacao" name="situacao" th:field="*{situacao}" class="form-control" required>
+                <div class="invalid-feedback">Campo obrigatório.</div>
+            </div>
+            <div class="d-flex justify-content-center">
+                <button type="submit" class="btn btn-primary">Alterar</button>
+            </div>
+        </form>
+    </div>
+</div>
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+</body>
+</html>
